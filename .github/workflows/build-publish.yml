@@ -45,6 +45,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: api-market-place-artifact
+          path: application/target
 
       - name: Login em Docker Hub
         uses: docker/login-action@v4
@@ -62,7 +63,7 @@ jobs:
         id: push
         uses: docker/build-push-action@v7
         with:
-          contents: .
+          context: .
           file: ./Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
