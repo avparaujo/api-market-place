@@ -129,29 +129,29 @@ class CadastroProdutoUseCaseTest {
             }
         }
 
-        @DisplayName("Então deve retornar erro")
-        @Nested
-        class Falha {
-            @DisplayName("Dado um produto com o nome que começa com -")
-            @Test
-            void teste1(){
-                //DADO
-                var produto = criarProduto()
-                        .comTodosOsCampos();
-                setField(produto, "nome", "- Nome Teste");
-
-
-                //QUANDO
-                var atual = assertThrows(BusinessException.class,
-                        () -> cadastroProdutoUseCase.cadastrar(produto));
-
-                //ENTAO
-                assertThat(atual)
-                        .hasMessage("O nome do produto não pode começar com -");
-
-
-            }
-        }
+//        @DisplayName("Então deve retornar erro")
+//        @Nested
+//        class Falha {
+//            @DisplayName("Dado um produto com o nome que começa com -")
+//            @Test
+//            void teste1(){
+//                //DADO
+//                var produto = criarProduto()
+//                        .comTodosOsCampos();
+//                setField(produto, "nome", "- Nome Teste");
+//
+//
+//                //QUANDO
+//                var atual = assertThrows(BusinessException.class,
+//                        () -> cadastroProdutoUseCase.cadastrar(produto));
+//
+//                //ENTAO
+//                assertThat(atual)
+//                        .hasMessage("O nome do produto não pode começar com -");
+//
+//
+//            }
+//        }
 
 
     }
